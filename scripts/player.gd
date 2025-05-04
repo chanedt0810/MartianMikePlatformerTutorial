@@ -7,6 +7,8 @@ class_name Player
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+var active = true
+
 func _physics_process(delta: float) -> void:
 	# Only apply gravity if the player is not on the floor
 	if is_on_floor() == false:
@@ -14,11 +16,14 @@ func _physics_process(delta: float) -> void:
 		if velocity.y > 500:
 			velocity.y = 500
 
-	if Input.is_action_just_pressed("jump") && is_on_floor():
-		# Jump if the player presses the jump button and is on the floor
-		jump(jump_force)
+	var direction = 0
 	
-	var direction = Input.get_axis("move_left", "move_right")
+	if active == true:
+		if Input.is_action_just_pressed("jump") && is_on_floor():
+			# Jump if the player presses the jump button and is on the floor
+			jump(jump_force)
+		
+		direction = Input.get_axis("move_left", "move_right")
 
 	if direction != 0:
 		# Move the player left or right		

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cj11p0ohild0e"]
+[gd_scene load_steps=14 format=3 uid="uid://cj11p0ohild0e"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_e18a4"]
+[ext_resource type="PackedScene" uid="uid://jfofp10b1ut4" path="res://scenes/level_2.tscn" id="2_p2c6q"]
 [ext_resource type="PackedScene" uid="uid://rsy7bk0k2rl8" path="res://scenes/player.tscn" id="2_yqufx"]
 [ext_resource type="Texture2D" uid="uid://b7q2cunxp5kbf" path="res://icon.svg" id="3_7xao5"]
 [ext_resource type="PackedScene" uid="uid://bmlebroifldma" path="res://scenes/jump_pad.tscn" id="4_2c8bx"]
@@ -8,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://br8ck8wlg4xyp" path="res://scenes/spike_ball.tscn" id="6_hkdt8"]
 [ext_resource type="PackedScene" uid="uid://dyvxh8pi6jdul" path="res://scenes/tile_map.tscn" id="7_n0nt3"]
 [ext_resource type="PackedScene" uid="uid://dtx7mrw5m5ora" path="res://scenes/background.tscn" id="8_s24ii"]
+[ext_resource type="PackedScene" uid="uid://c5pycwp3d0ox6" path="res://scenes/exit.tscn" id="9_1bjwd"]
+[ext_resource type="PackedScene" uid="uid://dv4xo73dmgo11" path="res://scenes/start.tscn" id="9_2im7t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwv68"]
 size = Vector2(988, 20)
@@ -17,9 +20,7 @@ size = Vector2(1431, 20)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_e18a4")
-
-[node name="Player" parent="." instance=ExtResource("2_yqufx")]
-position = Vector2(13, 183)
+next_level = ExtResource("2_p2c6q")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-17, -147)
@@ -40,9 +41,6 @@ collision_mask = 2
 position = Vector2(209.5, 320)
 shape = SubResource("RectangleShape2D_nt1tb")
 
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(13, 183)
-
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="JumpPad" parent="Objects" instance=ExtResource("4_2c8bx")]
@@ -50,16 +48,15 @@ position = Vector2(298, 210)
 jump_force = 250
 
 [node name="JumpPad2" parent="Objects" instance=ExtResource("4_2c8bx")]
-position = Vector2(51, 210)
-jump_force = 350
+position = Vector2(87, 210)
 
 [node name="Traps" type="Node2D" parent="."]
 
 [node name="Saw" parent="Traps" instance=ExtResource("5_qxajg")]
-position = Vector2(100, 210)
+position = Vector2(134, 210)
 
 [node name="Saw2" parent="Traps" instance=ExtResource("5_qxajg")]
-position = Vector2(100, 170)
+position = Vector2(134, 170)
 
 [node name="SpikeBall" parent="Traps" instance=ExtResource("6_hkdt8")]
 position = Vector2(331, 214)
@@ -68,3 +65,12 @@ position = Vector2(331, 214)
 layer_0/tile_data = PackedInt32Array(917507, 458752, 0, 983043, 458752, 1, 1048579, 458752, 2, 917508, 458752, 0, 983044, 458752, 1, 1048580, 458752, 2, 917509, 458752, 0, 983045, 458752, 1, 1048581, 458752, 2, 917510, 458752, 0, 983046, 458752, 1, 1048582, 458752, 2, 917511, 458752, 0, 983047, 458752, 1, 1048583, 458752, 2, 917512, 458752, 0, 983048, 458752, 1, 1048584, 458752, 2, 917513, 458752, 0, 983049, 458752, 1, 1048585, 458752, 2, 917514, 458752, 0, 983050, 458752, 1, 1048586, 458752, 2, 917515, 458752, 0, 983051, 458752, 1, 1048587, 458752, 2, 917516, 458752, 0, 983052, 458752, 1, 1048588, 458752, 2, 917517, 458752, 0, 983053, 458752, 1, 1048589, 458752, 2, 917518, 458752, 0, 983054, 458752, 1, 1048590, 458752, 2, 917519, 458752, 0, 983055, 458752, 1, 1048591, 458752, 2, 917520, 458752, 0, 983056, 458752, 1, 1048592, 458752, 2, 917521, 458752, 0, 983057, 458752, 1, 1048593, 458752, 2, 917522, 458752, 0, 983058, 458752, 1, 1048594, 458752, 2, 917523, 524288, 0, 983059, 524288, 1, 1048595, 524288, 2, 917528, 393216, 0, 917529, 458752, 0, 983065, 458752, 1, 1048601, 458752, 2, 917530, 458752, 0, 983066, 458752, 1, 1048602, 458752, 2, 917531, 458752, 0, 983067, 458752, 1, 1048603, 458752, 2, 917532, 458752, 0, 983068, 458752, 1, 1048604, 458752, 2, 917505, 458752, 0, 983041, 458752, 1, 1048577, 458752, 2, 917506, 458752, 0, 983042, 458752, 1, 1048578, 458752, 2, 917533, 524288, 0, 983069, 589824, 1, 1048605, 458752, 2, 917504, 393216, 0, 983040, 393216, 1, 1048576, 393216, 2, 1048600, 393216, 2, 983064, 393216, 1, 720916, 1114112, 1, 720917, 1179648, 1, 720918, 1179648, 1, 720919, 1245184, 1, 1048606, 458752, 2, 1048607, 458752, 2, 983071, 655360, 1, 917536, 655360, 1, 917537, 458752, 1, 852001, 655360, 1, 786465, 393216, 0, 983070, 458752, 0, 917535, 393216, 0, 852000, 393216, 0, 983072, 458752, 1, 983073, 458752, 1, 1048609, 458752, 2, 1048608, 458752, 2, 786466, 458752, 0, 852002, 458752, 1, 917538, 458752, 1, 983074, 458752, 1, 1048610, 458752, 2, 786467, 458752, 0, 852003, 458752, 1, 917539, 458752, 1, 983075, 458752, 1, 1048611, 458752, 2, 1048612, 458752, 2, 983076, 458752, 1, 917540, 458752, 1, 852004, 458752, 1, 786468, 655360, 1, 720932, 393216, 1, 655396, 393216, 0, 1048613, 458752, 2, 983077, 458752, 1, 917541, 458752, 1, 852005, 458752, 1, 786469, 458752, 1, 720933, 458752, 1, 655397, 458752, 0, 1048614, 458752, 2, 983078, 458752, 1, 917542, 458752, 1, 852006, 458752, 1, 786470, 589824, 1, 720934, 524288, 1, 655398, 524288, 0, 786471, 458752, 0, 786472, 524288, 0, 852007, 458752, 1, 852008, 589824, 1, 917544, 458752, 1, 983080, 458752, 1, 983079, 458752, 1, 1048615, 458752, 2, 1048616, 458752, 2, 917543, 458752, 1, 852009, 458752, 0, 852010, 524288, 0, 917546, 524288, 1, 983082, 524288, 1, 1048618, 524288, 2, 1048617, 458752, 2, 983081, 458752, 1, 917545, 458752, 1)
 
 [node name="Background" parent="." instance=ExtResource("8_s24ii")]
+
+[node name="Start" parent="." instance=ExtResource("9_2im7t")]
+position = Vector2(30, 224)
+
+[node name="Exit" parent="." instance=ExtResource("9_1bjwd")]
+position = Vector2(600, 160)
+
+[node name="Player" parent="." instance=ExtResource("2_yqufx")]
+position = Vector2(13, 183)
