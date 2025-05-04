@@ -1,8 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://jfofp10b1ut4"]
+[gd_scene load_steps=13 format=3 uid="uid://jfofp10b1ut4"]
 
 [ext_resource type="PackedScene" uid="uid://rsy7bk0k2rl8" path="res://scenes/player.tscn" id="1_ryxd8"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_tfec7"]
+[ext_resource type="PackedScene" uid="uid://hkx7pw1y6xh" path="res://scenes/level_3.tscn" id="2_olfgp"]
+[ext_resource type="PackedScene" uid="uid://dtx7mrw5m5ora" path="res://scenes/background.tscn" id="2_wxs18"]
+[ext_resource type="PackedScene" uid="uid://ceotclmlp4onw" path="res://scenes/death_zone.tscn" id="3_7ihgc"]
+[ext_resource type="Texture2D" uid="uid://beitxqfhkswer" path="res://assets/textures/bg/Green.png" id="4_2kvuw"]
+[ext_resource type="PackedScene" uid="uid://dv4xo73dmgo11" path="res://scenes/start.tscn" id="4_v7qvs"]
+[ext_resource type="PackedScene" uid="uid://bmlebroifldma" path="res://scenes/jump_pad.tscn" id="5_3dagv"]
+[ext_resource type="PackedScene" uid="uid://c5pycwp3d0ox6" path="res://scenes/exit.tscn" id="5_h16af"]
+[ext_resource type="PackedScene" uid="uid://dyvxh8pi6jdul" path="res://scenes/tile_map.tscn" id="6_7f81t"]
+[ext_resource type="PackedScene" uid="uid://b5suh3mdfkfcu" path="res://scenes/saw.tscn" id="6_e4cgs"]
+[ext_resource type="PackedScene" uid="uid://br8ck8wlg4xyp" path="res://scenes/spike_ball.tscn" id="7_dioso"]
 
 [node name="level_2" type="Node2D"]
+script = ExtResource("1_tfec7")
+next_level = ExtResource("2_olfgp")
+
+[node name="Background" parent="." instance=ExtResource("2_wxs18")]
+background_texture = ExtResource("4_2kvuw")
+
+[node name="DeathZone" parent="." instance=ExtResource("3_7ihgc")]
+
+[node name="Start" parent="." instance=ExtResource("4_v7qvs")]
+position = Vector2(29, 208)
+
+[node name="Exit" parent="." instance=ExtResource("5_h16af")]
+position = Vector2(808, 192)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="JumpPad" parent="Objects" instance=ExtResource("5_3dagv")]
+position = Vector2(608, 195)
+
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="Saw" parent="Traps" instance=ExtResource("6_e4cgs")]
+position = Vector2(552, 204)
+
+[node name="SpikeBall" parent="Traps" instance=ExtResource("7_dioso")]
+position = Vector2(341, 197)
+
+[node name="TileMap" parent="." instance=ExtResource("6_7f81t")]
+layer_0/tile_data = PackedInt32Array(983040, 393216, 2, 917504, 393216, 1, 851968, 393216, 0, 851969, 458752, 0, 917505, 458752, 1, 983041, 458752, 2, 983042, 458752, 2, 917506, 458752, 1, 917507, 458752, 1, 851970, 458752, 0, 851971, 458752, 0, 983043, 458752, 2, 983044, 458752, 2, 917508, 458752, 1, 851972, 458752, 0, 851973, 458752, 0, 917509, 458752, 1, 983045, 458752, 2, 983046, 458752, 2, 917510, 458752, 1, 917511, 524288, 1, 851975, 524288, 0, 851974, 458752, 0, 983047, 524288, 2, 720904, 1114112, 1, 720905, 1179648, 1, 720906, 1245184, 1, 589837, 1114112, 1, 589838, 1179648, 1, 589839, 1245184, 1, 720916, 1114112, 1, 720917, 1179648, 1, 720918, 1245184, 1, 851993, 393216, 0, 851994, 458752, 0, 851995, 458752, 0, 917531, 458752, 1, 917532, 458752, 1, 983068, 458752, 2, 983069, 458752, 2, 983067, 458752, 2, 983066, 458752, 2, 983065, 393216, 2, 917529, 393216, 1, 917530, 458752, 1, 851996, 458752, 0, 851997, 655360, 1, 917533, 458752, 1, 786461, 393216, 1, 720925, 393216, 0, 786462, 458752, 1, 720926, 458752, 0, 720927, 524288, 0, 786463, 524288, 1, 851998, 458752, 1, 851999, 589824, 1, 917534, 458752, 1, 983070, 458752, 2, 983071, 458752, 2, 917535, 458752, 1, 852000, 458752, 0, 917536, 458752, 1, 983072, 458752, 2, 983073, 458752, 2, 917537, 458752, 1, 852001, 458752, 0, 852002, 458752, 0, 917538, 458752, 1, 983074, 458752, 2, 983075, 458752, 2, 917539, 458752, 1, 852003, 458752, 0, 852004, 458752, 0, 917540, 458752, 1, 983076, 458752, 2, 983077, 458752, 2, 852005, 458752, 0, 917541, 458752, 1, 917542, 458752, 1, 852006, 458752, 0, 983078, 458752, 2, 983079, 458752, 2, 917543, 458752, 1, 852007, 655360, 1, 983085, 458752, 2, 917549, 458752, 1, 852013, 458752, 0, 983084, 458752, 2, 917548, 458752, 1, 852012, 458752, 0, 983083, 458752, 2, 917547, 458752, 1, 852011, 458752, 0, 983082, 458752, 2, 917546, 458752, 1, 852010, 458752, 0, 983081, 458752, 2, 917545, 458752, 1, 852009, 589824, 1, 983080, 458752, 2, 917544, 458752, 1, 852008, 458752, 1, 786473, 524288, 1, 720937, 524288, 1, 655401, 524288, 1, 589865, 524288, 1, 524329, 524288, 1, 458793, 524288, 0, 786472, 458752, 1, 720936, 458752, 1, 655400, 458752, 1, 589864, 458752, 1, 524328, 458752, 1, 458792, 458752, 0, 786471, 393216, 1, 720935, 393216, 1, 655399, 393216, 1, 589863, 393216, 1, 524327, 393216, 1, 458791, 393216, 0, 983091, 524288, 2, 917555, 524288, 1, 852019, 524288, 1, 983090, 458752, 2, 917554, 458752, 1, 852018, 458752, 1, 983089, 458752, 2, 917553, 458752, 1, 852017, 655360, 1, 983088, 458752, 2, 917552, 458752, 1, 852016, 458752, 0, 983087, 458752, 2, 917551, 458752, 1, 852015, 458752, 0, 983086, 458752, 2, 917550, 458752, 1, 852014, 458752, 0, 786483, 524288, 0, 786482, 458752, 0, 786481, 393216, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_ryxd8")]
-position = Vector2(203, 109)
+position = Vector2(39, 161)
