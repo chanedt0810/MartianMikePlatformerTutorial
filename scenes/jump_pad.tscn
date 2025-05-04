@@ -70,6 +70,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qdjiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3atvj")
 }],
 "loop": false,
 "name": &"jump",
@@ -87,6 +90,8 @@ script = ExtResource("1_pvc27")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w4a7x")
 animation = &"jump"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 5.5)
