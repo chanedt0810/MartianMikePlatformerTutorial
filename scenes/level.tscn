@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj11p0ohild0e"]
+[gd_scene load_steps=15 format=3 uid="uid://cj11p0ohild0e"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_e18a4"]
 [ext_resource type="PackedScene" uid="uid://jfofp10b1ut4" path="res://scenes/level_2.tscn" id="2_p2c6q"]
 [ext_resource type="PackedScene" uid="uid://rsy7bk0k2rl8" path="res://scenes/player.tscn" id="2_yqufx"]
 [ext_resource type="Texture2D" uid="uid://b7q2cunxp5kbf" path="res://icon.svg" id="3_7xao5"]
+[ext_resource type="PackedScene" uid="uid://5wuvhra4j477" path="res://scenes/ui_layer.tscn" id="3_k5yhg"]
 [ext_resource type="PackedScene" uid="uid://bmlebroifldma" path="res://scenes/jump_pad.tscn" id="4_2c8bx"]
 [ext_resource type="PackedScene" uid="uid://ceotclmlp4onw" path="res://scenes/death_zone.tscn" id="4_iv3wr"]
 [ext_resource type="PackedScene" uid="uid://b5suh3mdfkfcu" path="res://scenes/saw.tscn" id="5_qxajg"]
@@ -20,6 +21,8 @@ size = Vector2(988, 20)
 script = ExtResource("1_e18a4")
 next_level = ExtResource("2_p2c6q")
 level_time = 10
+
+[node name="UILayer" parent="." instance=ExtResource("3_k5yhg")]
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-17, -147)

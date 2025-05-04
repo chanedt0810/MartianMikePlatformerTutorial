@@ -8,6 +8,7 @@ extends Node2D
 @onready var exit = $Exit
 @onready var saw = $Traps/Saw
 @onready var spikeBall = $Traps/SpikeBall
+@onready var hud = $UILayer/HUD
 
 var player = null
 var timer_node = null
@@ -34,6 +35,7 @@ func _ready() -> void:
 	exit.body_entered.connect(_on_exit_body_entered)
 
 	time_left = level_time
+	hud.set_time_label(time_left)
 
 	timer_node = Timer.new()
 	timer_node.name = "Level Timer"
@@ -60,6 +62,7 @@ func reset_player() -> void:
 	# Reset the player's position to the start position
 	player.velocity = Vector2.ZERO
 	player.global_position = start.get_spawn_position()
+	time_left = level_time
 
 func _on_exit_body_entered(body: Node) -> void:
 	# Check if the body is a Player
@@ -75,8 +78,10 @@ func _on_exit_body_entered(body: Node) -> void:
 func _on_level_timer_timeout() -> void:
 	if win == false:
 		time_left -= 1
+		hud.set_time_label(time_left)
 		print("Time left: ", time_left)
 		if time_left <= 0:
 			# Time is up, reset the player
 			reset_player()
 			time_left = level_time
+			hud.set_time_label(time_left)
