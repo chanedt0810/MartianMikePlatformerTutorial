@@ -2,6 +2,7 @@ extends Node2D
 
 @export var next_level: PackedScene = null
 @export var level_time = 5
+@export var is_final_level = false
 
 @onready var deathZone = $DeathZone
 @onready var start = $Start
@@ -9,6 +10,7 @@ extends Node2D
 @onready var saw = $Traps/Saw
 @onready var spikeBall = $Traps/SpikeBall
 @onready var hud = $UILayer/HUD
+@onready var ui_layer = $UILayer
 
 var player = null
 var timer_node = null
@@ -68,12 +70,16 @@ func _on_exit_body_entered(body: Node) -> void:
 	# Check if the body is a Player
 	# If the player is in the exit area, play the exit animation
 	if body is Player:
-		if next_level != null:
+		if is_final_level || next_level != null:
 			exit.animate()
 			player.active = false
 			win = true
 			await get_tree().create_timer(1.5).timeout
-			get_tree().change_scene_to_packed(next_level)
+
+			if is_final_level:
+				ui_layer.show_win_screen(true)
+			else:
+				get_tree().change_scene_to_packed(next_level)
 
 func _on_level_timer_timeout() -> void:
 	if win == false:
