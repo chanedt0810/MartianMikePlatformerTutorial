@@ -16,6 +16,7 @@
 [node name="level_2" type="Node2D"]
 script = ExtResource("1_tfec7")
 next_level = ExtResource("2_olfgp")
+level_time = 10
 
 [node name="Background" parent="." instance=ExtResource("2_wxs18")]
 background_texture = ExtResource("4_2kvuw")
