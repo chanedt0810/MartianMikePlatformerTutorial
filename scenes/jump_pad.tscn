@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bmlebroifldma"]
 
 [ext_resource type="Texture2D" uid="uid://c054go4706dym" path="res://assets/textures/other/Idle.png" id="1_e80er"]
-[ext_resource type="Script" path="res://scripts/jump_pad.gd" id="1_pvc27"]
+[ext_resource type="Script" uid="uid://6hckwybic4tk" path="res://scripts/jump_pad.gd" id="1_pvc27"]
 [ext_resource type="Texture2D" uid="uid://drltpgukuxvuf" path="res://assets/textures/other/Jump (28x28).png" id="2_put5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3atvj"]

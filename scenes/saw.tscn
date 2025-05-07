@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5suh3mdfkfcu"]
 
-[ext_resource type="Script" path="res://scripts/trap.gd" id="1_dldrp"]
+[ext_resource type="Script" uid="uid://jqu2aiq0fjb" path="res://scripts/trap.gd" id="1_dldrp"]
 [ext_resource type="Texture2D" uid="uid://jfapnnsft8se" path="res://assets/textures/other/Saw.png" id="1_idvjo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qx4wd"]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wcbor"]
 _data = {
-"RESET": SubResource("Animation_exl5x"),
-"spin": SubResource("Animation_i1cax")
+&"RESET": SubResource("Animation_exl5x"),
+&"spin": SubResource("Animation_i1cax")
 }
 
 [node name="Saw" type="Node2D" groups=["traps"]]
@@ -60,6 +60,6 @@ shape = SubResource("CircleShape2D_qx4wd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_wcbor")
+&"": SubResource("AnimationLibrary_wcbor")
 }
 autoplay = "spin"
