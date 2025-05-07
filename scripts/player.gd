@@ -50,5 +50,7 @@ func update_animation(direction) -> void:
 			animated_sprite.play("fall")
 
 func jump(force: float) -> void:
+	# Play the jump sound
+	AudioPlayer.play_sfx("jump")
 	# Jump with a specified force
 	velocity.y = -force
